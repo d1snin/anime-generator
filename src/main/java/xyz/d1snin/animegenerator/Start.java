@@ -7,7 +7,7 @@ public class Start {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome!");
         System.out.println("Please enter a name for the JSON file to be generated: ");
-        String fileName = scanner.next();
+        String fileName = scanner.nextLine();
         System.out.println("Please enter the number of created links for your file: ");
         int strings = scanner.nextInt();
         System.out.println("Generating...");
