@@ -2,23 +2,9 @@ package xyz.d1snin.animegenerator;
 import java.io.*;
 
 public class Writer {
-//    public Writer(int length, String[] content, String fileName) {
-//        fileToWrite = new File(fileName);
-//        write(length, content, fileName);
-//    }
-//    private static FileWriter writer;
-//    private static File fileToWrite;
-//
-//    static {
-//        try {
-//            writer = new FileWriter(fileToWrite.getAbsoluteFile(), false);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
-    public static void write(int strings, String[] content, String fileName) { ;
-        File fileToWrite = new File(fileName);
+    public static void write(int strings, String[] content, String fileName) {
+        File fileToWrite = new File(fileName + ".json");
         FileWriter writer = null;
         try {
             writer = new FileWriter(fileToWrite);
@@ -32,9 +18,9 @@ public class Writer {
         }
         try {
             if (fileToWrite.createNewFile()) {
-                System.out.println("output.json created");
+                System.out.println(fileName + ".json created");
             } else {
-                System.out.println("output.json already exist.");
+                System.out.println(fileName + ".json already exist. Writing to this file.");
                 System.out.println("Writing your file...");
                 writer.append("{");
                 writer.append(System.getProperty("line.separator"));
