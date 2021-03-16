@@ -20,7 +20,7 @@ public class Writer {
             if (fileToWrite.createNewFile()) {
                 System.out.println(fileName + ".json created");
             } else {
-                System.out.println(fileName + ".json already exist. Writing to this file.");
+                System.out.println(fileName + ".json exist. Writing to this file.");
                 System.out.println("Writing your file...");
                 writer.append("{");
                 writer.append(System.getProperty("line.separator"));
