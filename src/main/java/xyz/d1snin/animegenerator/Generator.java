@@ -9,15 +9,14 @@ import java.util.Random;
 
 public class Generator {
     public static void Generate(int strings, String filename) {
-        List<String> urls = null;
+        String[] urls = new String[strings];
         for (int i = 0; i <= strings; i++) {
             Danbooru danbooru = new DanbooruBuilder().build();
             List<Post> posts = danbooru.getPosts("", true);
             Random rand = new Random();
             Post randomElement = posts.get(rand.nextInt(posts.size()));
-            String url = randomElement.getFileUrl();
-            urls.add(url);
-            System.out.println("Writing: " + url);
+            urls[i] = randomElement.getFileUrl();
+            System.out.println("Writing: " + randomElement.getFileUrl());
         }
         Writer.Write(filename, strings, urls);
     }

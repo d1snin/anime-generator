@@ -15,7 +15,7 @@ public class Writer {
         }
     }
 
-    public static void Write(String filename, int strings, List<String> content) {
+    public static void Write(String filename, int strings, String[] content) {
         fileToWrite = new File(filename + ".json");
         try {
             if (fileToWrite.createNewFile()) {
@@ -24,7 +24,7 @@ public class Writer {
                 writer.append("{");
                 writer.append(System.getProperty("line.separator"));
                 for (int i = 0; i < strings; i++) {
-                    writer.append(String.valueOf('"')).append(String.valueOf(i)).append(String.valueOf('"')).append(": ").append(String.valueOf('"')).append(content.get(i)).append(String.valueOf('"')).append(",");
+                    writer.append(String.valueOf('"')).append(String.valueOf(i)).append(String.valueOf('"')).append(": ").append(String.valueOf('"')).append(content[i]).append(String.valueOf('"')).append(",");
                     writer.append(System.getProperty("line.separator"));
                 }
                 writer.append("}");
