@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'idea'
 
-mainClassName = 'xyz.d1snin.animegenerator.Start'
+mainClassName = 'xyz.d1snin.animegenerator.Application'
 
 repositories {
     mavenLocal()
@@ -17,7 +17,7 @@ jar {
     archiveName = 'animegen.jar'
 
     manifest {
-        attributes 'Main-Class': 'xyz.d1snin.animegenerator.Start',
+        attributes 'Main-Class': 'xyz.d1snin.animegenerator.Application',
                 'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' '),
                 'Implementation-Version': project.version
     }
