@@ -22,7 +22,7 @@ public class Generator {
             }
             System.out.println("Generating: " + randomElement.getFileUrl());
         }
-        new Writer(stringsCount, urls, filename);
+        Writer.write(stringsCount, urls, filename);
     }
 }
 
