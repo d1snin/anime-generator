@@ -18,6 +18,7 @@ public class Writer {
             if (fileToWrite.createNewFile()) {
                 System.out.println("output.json created");
             } else {
+                System.out.println("output.json already exist.");
                 writer.append("{");
                 writer.append(System.getProperty("line.separator"));
                 for (int i = 0; i < strings; i++) {
