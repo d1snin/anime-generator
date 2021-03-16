@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Generator {
-    public static void Generate(int stringsCount) {
+    public static void Generate(int stringsCount, String filename) {
         String[] urls = new String[stringsCount + 1];
         for (int i = 0; i <= stringsCount; i++) {
             Danbooru danbooru = new DanbooruBuilder().build();
@@ -22,7 +22,7 @@ public class Generator {
             }
             System.out.println("Generating: " + randomElement.getFileUrl());
         }
-        Writer.write(stringsCount, urls);
+        new Writer(stringsCount, urls, filename);
     }
 }
 
