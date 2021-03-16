@@ -8,7 +8,7 @@ public class Application {
             String tag = "";
             try {
                 tag = args[findIndex(args, "-t") + 1];
-            } catch (RuntimeException runtimeException) {
+            } catch (InvalidSyntaxException invalidSyntaxException) {
             }
             System.out.println("Welcome!");
             System.out.println("Generating according to your parameters...");
@@ -24,6 +24,6 @@ public class Application {
                 return i;
             }
         }
-        throw new RuntimeException();
+        throw new InvalidSyntaxException();
     }
 }
