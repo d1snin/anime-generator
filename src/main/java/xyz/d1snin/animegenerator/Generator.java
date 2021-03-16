@@ -14,7 +14,12 @@ public class Generator {
             Danbooru danbooru = new DanbooruBuilder().build();
             List<Post> posts = danbooru.getPosts(tag, true);
             Random rand = new Random();
-            Post randomElement = posts.get(rand.nextInt(posts.size()));
+            Post randomElement = null;
+            try {
+                randomElement = posts.get(rand.nextInt(posts.size()));
+            } catch (IllegalArgumentException illegalArgumentException) {
+                System.out.println("It looks like there are too few pictures with this tag, please try again, remember that this is a test function");
+            }
             urls[i] = randomElement.getFileUrl();
             if (randomElement.getFileUrl() == null) {
                 i++;
