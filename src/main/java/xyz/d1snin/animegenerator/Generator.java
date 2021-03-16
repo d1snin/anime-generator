@@ -19,6 +19,7 @@ public class Generator {
                 randomElement = posts.get(rand.nextInt(posts.size()));
             } catch (IllegalArgumentException illegalArgumentException) {
                 System.out.println("It looks like there are too few pictures with this tag, please try again, remember that this is a test function");
+                System.exit(0);
             }
             urls[i] = randomElement.getFileUrl();
             if (randomElement.getFileUrl() == null) {
