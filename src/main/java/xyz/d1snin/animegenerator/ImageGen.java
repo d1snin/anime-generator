@@ -30,9 +30,9 @@ public class ImageGen {
             String url = getImage(tag);
             res[i] = url;
             if (isSaveMode) ImageSaver.downloadFrom(url);
-            }
+            } 
+            return res;
         }
-        return res;
     }
 
 
