@@ -16,6 +16,10 @@ public class Generator {
             Random rand = new Random();
             Post randomElement = posts.get(rand.nextInt(posts.size()));
             urls[i] = randomElement.getFileUrl();
+            if (randomElement.getFileUrl() == null) {
+                i++;
+                continue;
+            }
             System.out.println("Writing: " + randomElement.getFileUrl());
         }
         Writer.Write(filename, strings, urls);

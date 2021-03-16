@@ -1,6 +1,5 @@
 package xyz.d1snin.animegenerator;
 import java.io.*;
-import java.util.List;
 
 public class Writer {
     private static File fileToWrite;
