@@ -1,38 +1,26 @@
-plugins {
-    id 'java'
-    id 'application'
-}
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
 
-apply plugin : 'java'
-
-ext {
-    javaMainClass = 'xyz.d1snin.animegenerator.Start'
-}
-
-application {
-    mainClassName = javaMainClass
-}
-
-group 'xyz.d1snin.animegenerator'
-version '1.0.0'
+mainClassName = 'xyz.d1snin.animegenerator.Start'
 
 repositories {
+    mavenLocal()
     mavenCentral()
-    jcenter()
     maven { url 'https://jitpack.io' }
 }
-
 dependencies {
-    implementation 'com.github.sg4e:java-danbooru-wrapper:master-SNAPSHOT'
+    compile 'com.github.sg4e:java-danbooru-wrapper:master-SNAPSHOT'
 }
-sourceSets {
-    main.java.srcDir "src/main/java"
-}
+
 jar {
+    archiveName = 'animegen.jar'
+
     manifest {
-        attributes(
-                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-                'Main-Class': 'xyz.d1snin.animegenerator.Start'
-        )
+        attributes 'Main-Class': 'xyz.d1snin.animegenerator.Start',
+                'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' '),
+                'Implementation-Version': project.version
     }
+
+    from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {}
 }

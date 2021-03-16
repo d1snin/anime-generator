@@ -8,6 +8,7 @@ public class Writer {
 
     static {
         try {
+            assert false;
             writer = new FileWriter(fileToWrite.getAbsoluteFile(), false);
         } catch (IOException e) {
             e.printStackTrace();
