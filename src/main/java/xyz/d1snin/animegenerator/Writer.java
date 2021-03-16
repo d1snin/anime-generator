@@ -13,7 +13,7 @@ public class Writer {
         try {
             if (fileToWrite.createNewFile()) {
             } else {
-                System.out.println("Writing your file");
+                System.out.println(" - Writing your file");
                 writer.append("{");
                 writer.append(System.getProperty("line.separator"));
                 for (int i = 0; i < content.length; i++) {
@@ -22,7 +22,7 @@ public class Writer {
                 }
                 writer.append("}");
                 writer.flush();
-                System.out.println("Done!");
+                System.out.println(" - Done!");
             }
         } catch (IOException ioException) {
             //ignore
