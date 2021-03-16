@@ -5,12 +5,17 @@ public class Application {
         try {
             int strings = Integer.parseInt(args[findIndex(args, "-l") + 1]);
             String fileName = args[findIndex(args, "-n") + 1];
+            String tag = "";
+            try {
+                tag = args[findIndex(args, "-t") + 1];
+            } catch (RuntimeException runtimeException) {
+            }
             System.out.println("Welcome!");
             System.out.println("Generating according to your parameters...");
-            Generator.Generate(strings, fileName);
+            Generator.Generate(strings, fileName, tag);
             System.exit(0);
         } catch (RuntimeException exception) {
-            System.out.println("Please use the following syntax:\njava -jar animegen.jar -l <count of generated images> -n <file name>");
+            System.out.println("Please use the following syntax:\njava -jar animegen.jar -l <count of generated images> -n <file name> -t <tag (optional)>");
         }
     }
     private static int findIndex(String[] arr, String toFind) {
