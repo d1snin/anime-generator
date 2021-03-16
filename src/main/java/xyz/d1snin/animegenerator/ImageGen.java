@@ -23,7 +23,7 @@ public class ImageGen {
     }
 
     public static String[] getImages(int count, String tag, boolean isSaveMode) {
-        String[] res = new String[count - 1];
+        String[] res = new String[count];
         for (int i = 0; i < res.length; i++) {
             String url = getImage(tag);
             if (url == null) {
