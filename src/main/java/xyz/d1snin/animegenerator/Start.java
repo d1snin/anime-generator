@@ -6,6 +6,6 @@ public class Start {
         System.out.println("Welcome!");
         System.out.println("Generating...");
         Generator.Generate(strings);
-        System.out.println("success");  //debug
+        System.exit(0);
     }
 }
