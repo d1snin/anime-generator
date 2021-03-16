@@ -22,7 +22,7 @@ public class ImageGen {
         return randomElement.getFileUrl();
     }
 
-    public static String[] getImages(int count, String tag) {
+    public static String[] getImages(int count, String tag, boolean isSaveMode) {
         String[] res = new String[count - 1];
         for (int i = 0; i < res.length; i++) {
             String url = getImage(tag);
@@ -30,6 +30,7 @@ public class ImageGen {
                 i++;
             } else {
                 res[i] = url;
+                if (isSaveMode) ImageSaver.downloadFrom(url);
             }
         }
         return res;
