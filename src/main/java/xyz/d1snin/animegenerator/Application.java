@@ -14,7 +14,7 @@ public class Application {
             System.out.println("Generating according to your parameters...");
             Generator.Generate(strings, fileName, tag);
             System.exit(0);
-        } catch (RuntimeException exception) {
+        } catch (InvalidSyntaxException exception) {
             System.out.println("Please use the following syntax:\njava -jar animegen.jar -l <count of generated images> -n <file name> -t <tag (optional)>");
         }
     }
