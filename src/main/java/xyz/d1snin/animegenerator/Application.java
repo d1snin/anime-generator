@@ -14,6 +14,7 @@ public class Application {
             System.out.println(" - Welcome!");
             System.out.println(" - Generating according to your parameters...");
             Writer.write(ImageGen.getImages(stringsCount, tag), fileName);
+            System.exit(0);
         } catch (InvalidSyntaxException | NumberFormatException exception) {
             System.out.println(" - Please use the following syntax:\njava -jar animegen.jar -l <count of generated images> -n <file name> -t <tag (optional)> -s <((optional) All pictures will be saved to the current folder)>");
         }
