@@ -21,11 +21,18 @@ public class ImageGen {
         }
         return randomElement.getFileUrl();
     }
+
     public static String[] getImages(int count, String tag) {
         String[] res = new String[count - 1];
-        for (String s : res) {
-            s = getImage(tag);
+        for (int i = 0; i < res.length; i++) {
+            String url = getImage(tag);
+            if (url == null) {
+                i++;
+            } else {
+                res[i] = url;
+            }
         }
         return res;
     }
 }
+

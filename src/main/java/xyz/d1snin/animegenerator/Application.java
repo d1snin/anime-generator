@@ -1,7 +1,10 @@
 package xyz.d1snin.animegenerator;
 
+import java.util.Random;
+
 public class Application {
     public static void main(String[] args) {
+        Random random = new Random();
         try {
             boolean isSaveMode = false;
             String tag = "";
@@ -24,10 +27,12 @@ public class Application {
             if (!isSaveMode) {
                 Writer.write(ImageGen.getImages(stringsCount, tag), fileName);
             } else {
-                ImageSave.saver(ImageGen.getImages(stringsCount, tag));
+                ImageSave.downloadFile(ImageGen.getImages(stringsCount, tag), Integer.toString(random.nextInt(1000000) + 1000000));
             }
         } catch (InvalidSyntaxException | NumberFormatException exception) {
             System.out.println("Please use the following syntax:\njava -jar animegen.jar -l <count of generated images> -n <file name> -t <tag (optional)> -s <((optional) All pictures will be saved to the current folder)>");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     private static int findIndex(String[] arr, String toFind) throws InvalidSyntaxException {
