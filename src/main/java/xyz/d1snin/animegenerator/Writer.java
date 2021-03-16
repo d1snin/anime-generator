@@ -2,20 +2,14 @@ package xyz.d1snin.animegenerator;
 import java.io.*;
 
 public class Writer {
-    private static File fileToWrite;
-    private static FileWriter writer;
-
-    static {
+    public static void Write(String filename, int strings, String[] content) {
+        File fileToWrite = new File(filename + ".json");
+        FileWriter writer = null;
         try {
-            assert false;
-            writer = new FileWriter(fileToWrite.getAbsoluteFile(), false);
+            writer = new FileWriter(fileToWrite, false);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void Write(String filename, int strings, String[] content) {
-        fileToWrite = new File(filename + ".json");
         try {
             if (fileToWrite.createNewFile()) {
                 System.out.println(filename + ".json created.");
