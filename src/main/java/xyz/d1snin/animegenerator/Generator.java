@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Generator {
     public static void Generate(int strings, String filename) {
-        String[] urls = new String[strings];
+        String[] urls = new String[strings + 1];
         for (int i = 0; i <= strings; i++) {
             Danbooru danbooru = new DanbooruBuilder().build();
             List<Post> posts = danbooru.getPosts("", true);
