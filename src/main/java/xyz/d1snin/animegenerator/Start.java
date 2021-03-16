@@ -6,6 +6,6 @@ public class Start {
         int strings = Integer.parseInt(args[1]);
         System.out.println("Welcome!");
         System.out.println("Generating...");
-        Generator.Generate(strings, fileName);
+        Generator.Generate(strings);
     }
 }

@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Random;
 
 public class Generator {
-    public static void Generate(int strings, String filename) {
-        String[] urls = new String[strings + 1];
-        for (int i = 0; i <= strings; i++) {
+    public static void Generate(int stringsCount) {
+        String[] urls = new String[stringsCount + 1];
+        for (int i = 0; i <= stringsCount; i++) {
             Danbooru danbooru = new DanbooruBuilder().build();
             List<Post> posts = danbooru.getPosts("", true);
             Random rand = new Random();
@@ -20,9 +20,9 @@ public class Generator {
                 i++;
                 continue;
             }
-            System.out.println("Writing: " + randomElement.getFileUrl());
+            System.out.println("Generating: " + randomElement.getFileUrl());
         }
-        Writer.Write(filename, strings, urls);
+        Writer.write(stringsCount, urls);
     }
 }
 
