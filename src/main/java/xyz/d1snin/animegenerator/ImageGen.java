@@ -10,7 +10,13 @@ import java.util.Random;
 public class ImageGen {
     private static String getImage(String tag) {
         Danbooru danbooru = new DanbooruBuilder().build();
-        List<Post> posts = danbooru.getPosts(tag, true);
+        List<Post> posts = null;
+        try {
+            posts = danbooru.getPosts(tag, true);
+        } catch (Exception exception) {
+            System.out.println(" - Unable to get posts from Danbooru, check your network connection or use a VPN.");
+            System.exit(0);
+        }
         Random rand = new Random();
         Post randomElement = null;
         try {
