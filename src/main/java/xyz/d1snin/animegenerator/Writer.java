@@ -17,7 +17,7 @@ public class Writer {
                 writer.append("{");
                 writer.append(System.getProperty("line.separator"));
                 for (int i = 0; i < content.size(); i++) {
-                    writer.append(String.valueOf('"')).append(String.valueOf(i)).append(String.valueOf('"')).append(": ").append(String.valueOf('"')).append(content.get(i)).append(String.valueOf('"')).append(",");
+                    writer.append(String.valueOf('"')).append(String.valueOf(i)).append(String.valueOf('"')).append(": ").append(String.valueOf('"')).append(content.get(i)).append(String.valueOf('"')).append(i == (content.size() - 1) ? "" : ",");
                     writer.append(System.getProperty("line.separator"));
                 }
                 writer.append("}");
