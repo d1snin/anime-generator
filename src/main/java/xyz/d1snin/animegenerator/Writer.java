@@ -1,23 +1,23 @@
 package xyz.d1snin.animegenerator;
 import java.io.*;
+import java.util.List;
 
 public class Writer {
-    public static void write(String[] content, String fileName) {
+    public static void write(List<String> content, String fileName) {
         File fileToWrite = new File(fileName + ".json");
         FileWriter writer = null;
         try {
             writer = new FileWriter(fileToWrite.getAbsoluteFile(), false);
         } catch (IOException e) {
-            //ignore
+            /* ignore */
         }
         try {
-            if (fileToWrite.createNewFile()) {
-            } else {
-                System.out.println(" - Writing your file");
+            if (fileToWrite.createNewFile()) { } else {
+                System.out.println(" - Writing your file...");
                 writer.append("{");
                 writer.append(System.getProperty("line.separator"));
-                for (int i = 0; i < content.length; i++) {
-                    writer.append(String.valueOf('"')).append(String.valueOf(i)).append(String.valueOf('"')).append(": ").append(String.valueOf('"')).append(content[i]).append(String.valueOf('"')).append(",");
+                for (int i = 0; i < content.size(); i++) {
+                    writer.append(String.valueOf('"')).append(String.valueOf(i)).append(String.valueOf('"')).append(": ").append(String.valueOf('"')).append(content.get(i)).append(String.valueOf('"')).append(",");
                     writer.append(System.getProperty("line.separator"));
                 }
                 writer.append("}");

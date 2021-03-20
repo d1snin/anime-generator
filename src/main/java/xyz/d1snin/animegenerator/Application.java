@@ -8,21 +8,27 @@ public class Application {
             try {
                 tag = args[findIndex(args, "-t") + 1];
             } catch (InvalidSyntaxException invalidSyntaxException) {
+                /* ignore */
             }
             try {
-                String saveMode = args[findIndex(args, "-s")];
+                findIndex(args, "-s");
                 isSaveMode = true;
             } catch (InvalidSyntaxException invalidSyntaxException) {
+                /* ignore */
             }
             int stringsCount = Integer.parseInt(args[findIndex(args, "-l") + 1]);
             String fileName;
             fileName = args[findIndex(args, "-n") + 1];
-            System.out.println(" - Welcome!");
+            System.out.println(" - Welcome, " + System.getProperty("user.name") + "!");
             System.out.println(" - Generating according to your parameters...");
             Writer.write(ImageGen.getImages(stringsCount, tag, isSaveMode), fileName);
             System.exit(0);
         } catch (InvalidSyntaxException | NumberFormatException exception) {
-            System.out.println(" - Please use the following syntax:\njava -jar animegen.jar -l <count of generated images> -n <file name> -t <tag (optional)> -s <((optional) All pictures will be saved to the current folder)>");
+            System.out.println(" - Please use the following syntax:\njava -jar animegen.jar " +
+                    "\n-l <count of generated images> " +
+                    "\n-n <file name> " +
+                    "\n-t <tag (optional)> " +
+                    "\n-s <((optional) All pictures will be saved to the current folder)>");
         }
     }
     private static int findIndex(String[] arr, String toFind) throws InvalidSyntaxException {

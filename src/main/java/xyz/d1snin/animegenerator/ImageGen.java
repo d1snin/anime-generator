@@ -4,6 +4,7 @@ import sg4e.danbooru.Danbooru;
 import sg4e.danbooru.DanbooruBuilder;
 import sg4e.danbooru.Post;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -30,11 +31,12 @@ public class ImageGen {
         return randomElement.getFileUrl();
     }
 
-    public static String[] getImages(int count, String tag, boolean isSaveMode) {
-        String[] res = new String[count];
-        for (int i = 0; i < res.length; i++) {
+    public static List<String> getImages(int count, String tag, boolean isSaveMode) {
+        List<String> res = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
             String url = getImage(tag);
-            res[i] = url;
+            res.add(url);
+            System.out.println(" - Fetching: [" + url + "]");
             if (isSaveMode) ImageSaver.downloadFrom(url);
         }
         return res;
