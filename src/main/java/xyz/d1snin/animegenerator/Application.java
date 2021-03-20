@@ -24,6 +24,7 @@ public class Application {
             System.out.println(" - Generating according to your parameters...");
             System.out.println(" - How much will be generated: " + stringsCount);
             System.out.println(" - File name: " + fileName + ".json");
+            System.out.println(" - NOTE: If you use a VPN it can take a long time.");
             if (isSaveMode) System.out.println(" - The images will be saved to the current directory");
             if (isTagProvided) System.out.println(" - Tag: " + tag);
 

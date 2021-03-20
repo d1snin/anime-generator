@@ -6,7 +6,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 public class ImageSaver {
     public static void downloadFrom(String url) {
@@ -24,7 +23,7 @@ public class ImageSaver {
         try (InputStream in = url.openStream()) {
             Files.copy(in, Paths.get(fileName));
         } catch (IOException exception) {
-            System.out.println(" - Can't save image. " + "(" + Arrays.asList(url.toString().split("/")).get(Arrays.asList(url.toString().split("/")).size() - 1) /* mfw */ + ")");
+            downloadFile(url, fileName);
         }
     }
 }
