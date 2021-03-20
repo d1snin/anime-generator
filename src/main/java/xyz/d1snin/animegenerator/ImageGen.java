@@ -39,7 +39,7 @@ public class ImageGen {
                 url = getImage(tag); //ok
             }
             res.add(url);
-            System.out.println(" - Fetching " + "(" + i + 1 + "/" + count + ")" + ": " + "[" + url + "]");
+            System.out.println(" - Fetching " + "(" + (i + 1) + "/" + count + ")" + ": " + "[" + url + "]");
             if (isSaveMode) ImageSaver.downloadFrom(url);
         }
         return res;
