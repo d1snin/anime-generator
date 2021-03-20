@@ -21,9 +21,9 @@ public class ImageGen {
         Random rand = new Random();
         Post randomElement = null;
         try {
-            while (randomElement == null) {
+            do {
                 randomElement = posts.get(rand.nextInt(posts.size()));
-            }
+            } while (randomElement == null);
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(" - It looks like there are too few pictures with this tag, please try again, remember that this is a test function");
             System.exit(0);
@@ -35,8 +35,11 @@ public class ImageGen {
         List<String> res = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             String url = getImage(tag);
+            if (url == null) {
+                url = getImage(tag); //ok
+            }
             res.add(url);
-            System.out.println(" - Fetching: [" + url + "]");
+            System.out.println(" - Fetching " + "(" + i + "/" + count + ")" + ": " + "[" + url + "]");
             if (isSaveMode) ImageSaver.downloadFrom(url);
         }
         return res;

@@ -21,6 +21,7 @@ public class Application {
             fileName = args[findIndex(args, "-n") + 1];
             System.out.println(" - Welcome, " + System.getProperty("user.name") + "!");
             System.out.println(" - Generating according to your parameters...");
+            System.out.println(" - How much will be generated: " + stringsCount);
             Writer.write(ImageGen.getImages(stringsCount, tag, isSaveMode), fileName);
             System.exit(0);
         } catch (InvalidSyntaxException | NumberFormatException exception) {
