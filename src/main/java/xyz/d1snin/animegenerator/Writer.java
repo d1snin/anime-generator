@@ -1,5 +1,6 @@
 package xyz.d1snin.animegenerator;
 import java.io.*;
+import java.util.Iterator;
 import java.util.List;
 
 public class Writer {
@@ -16,16 +17,19 @@ public class Writer {
                 System.out.println(" - Writing your file...");
                 writer.append("{");
                 writer.append(System.getProperty("line.separator"));
-                for (int i = 0; i < content.size(); i++) {
-                    writer.append(String.valueOf('"')).append(String.valueOf(i)).append(String.valueOf('"')).append(": ").append(String.valueOf('"')).append(content.get(i)).append(String.valueOf('"')).append(i == (content.size() - 1) ? "" : ",");
+                Iterator<String> iterator = content.iterator();
+                int i = 0;
+                while (iterator.hasNext()) {
+                    writer.append(String.valueOf('"')).append(String.valueOf(i)).append(String.valueOf('"')).append(": ").append(String.valueOf('"')).append(iterator.next()).append(String.valueOf('"')).append(i == (content.size() - 1) ? "" : ",");
                     writer.append(System.getProperty("line.separator"));
+                    i++;
                 }
                 writer.append("}");
                 writer.flush();
                 System.out.println(" - Done!");
             }
         } catch (IOException ioException) {
-            //ignore
+            /* ignore */
         }
     }
 }
