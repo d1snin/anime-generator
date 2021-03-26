@@ -27,8 +27,7 @@ public class Application {
             System.out.println(" - NOTE: If you use a VPN it can take a long time.");
             if (isSaveMode) System.out.println(" - The images will be saved to the current directory");
             if (isTagProvided) System.out.println(" - Tag: " + tag);
-
-            Writer.write(ImageGen.getImages(stringsCount, tag, isSaveMode), fileName);
+            Writer.write(ImageGen.getImages(stringsCount, tag, isSaveMode, "danbooru"), fileName);
             System.exit(0);
         } catch (InvalidSyntaxException | NumberFormatException exception) {
             System.out.println(" - Please use the following syntax:\njava -jar animegen.jar " +
